@@ -15,5 +15,5 @@
 		<%end%>
 
 <%else%>
-		<%controller.redirect_to logged_in_path%>
+		<%controller.redirect_to user_path(session[:id])%>
 <%end%>

@@ -1,13 +1,16 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Home", root_path %>  <%= link_to "Show Users", logged_in_path %>
-   
+  <%if session[:id].nil?%>
+    <%= link_to "Home", root_path %>  
+   <%else%>
      <nav>
-     <%= link_to "Show Event", posted_path %>
-     </nav>
-    <nav>
-
+     <%= link_to "Home", user_path(session[:id]) %> 
+     
+     <%= link_to "Show Events", events_path %>
+     <%= link_to "All Users", users_path %>
+     
       <%= link_to "Log out", logout_path, method: "delete" %>
     </nav>
+    <%end%>
   </div>
 </header>

@@ -21,11 +21,13 @@ class UsersController < ApplicationController
 
 	end
 	def show 
-		#@user = User.find(params[:id])
+		@name = User.find(session[:id]).name
+		@user = User.find(session[:id])
+	end
+	def index
 		@name = User.find(session[:id]).name
 		@user = User.all
 	end
-
 	private
 
     def user_params
