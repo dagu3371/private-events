@@ -1,0 +1,20 @@
+Welcome <%= @name %><br>
+<h>Event Creation</h>
+<%=form_for @event do |f|%>
+<p>
+	<%=f.label :location%><br>
+	<%=f.text_field :location%><br>
+	</p>
+
+	<p>
+	<%=f.label :date%><br>
+	<%=f.date_field :date%><br>
+	</p>
+
+	
+	<%=f.label :description%><br>
+	<%=f.text_field :description%><br>
+	
+	<%=f.submit "Post"%>
+
+<%end%>

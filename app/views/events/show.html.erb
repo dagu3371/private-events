@@ -1,0 +1,19 @@
+Event Details
+	
+		<li>
+	    <%= @event.location %> <%= @event.creator.name %> <%= @event.date %>
+	    </li>
+	<% if User.find(@user_id).invites.where("attended_event_id = ?", @event.id).exists? == true%>    
+		<%= form_for @invite, url: invite_path, method: :delete do |f| %>
+		  <%= f.hidden_field :attended_event_id, :value => @event.id %>
+		  <%= f.submit "Cancel" %>
+		<% end %>
+
+	<%else %>
+
+		<%= form_for @invite  do |f| %>
+		  <%= f.hidden_field :attended_event_id, :value => @event.id %>
+		  <%= f.submit "Attend" %>
+		<% end %>
+
+	<%end%>

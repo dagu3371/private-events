@@ -1,0 +1,17 @@
+<% if @name.nil?%>
+	<%controller.redirect_to root_path%>
+<%else%>
+	<% if flash[:success] %>
+	    <div class="success"><%= flash[:success] %></div>
+	  <% end %>
+	  Welcome <%= @name %><br>
+	List of users 
+	<% @user.each do |user| %>
+		<li>
+	    <%= user.name %> <%= user.email %> 
+	    </li>
+	<% end %>
+	<%= link_to "Create Event", create_event_path %> <br>
+	<%= link_to "Log out", logout_path, method: "delete" %>
+
+<%end%>

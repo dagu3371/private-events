@@ -1,0 +1,19 @@
+<% if session[:id].nil?%>
+	Please sign in to create events
+		<%= render 'shared/error_messages' %>
+		<%= form_for @user do |f| %>
+
+			
+			<%=f.label :name %>
+			<%=f.text_field :name %>
+			
+			<%=f.label :email %>
+			<%=f.email_field :email %>	
+
+			<%=f.submit "Sign In" %>
+
+		<%end%>
+
+<%else%>
+		<%controller.redirect_to logged_in_path%>
+<%end%>

@@ -1,0 +1,17 @@
+List of all events 
+	<% @event.each do |event| %>
+		
+	    <p><b>Location: </b><%= event.location %> <b>Date: </b><%= event.date %> <b>Description:</b> <%= event.description %></b>  <b>Host: </b><%= event.creator.name %> <%= link_to "View Event", event_path(event.id) %>
+
+	   
+	    	<br><b>Attendees: </b> 
+		  <% event.attendees.each do |attend| %>
+	   <br>
+	   <%= attend.name %> 
+	   <% end %><br>
+	    </p> 
+
+	   
+	   <br>
+	 
+	<% end %>
